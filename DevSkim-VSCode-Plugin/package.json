@@ -23,7 +23,7 @@
 		"theme": "dark"
 	},
 	"engines": {
-		"vscode": "^1.63.0"
+		"vscode": "1.63.0"
 	},
 	"bugs": {
 		"url": "https://github.com/Microsoft/DevSkim/issues"
@@ -317,13 +317,13 @@
 		"vsce-pack": "vsce package || echo 'Release build failed'"
 	},
 	"devDependencies": {
-		"@types/node": "^20.x",
-		"@typescript-eslint/eslint-plugin": "^7.2.0",
-		"@typescript-eslint/parser": "^7.2.0",
-		"esbuild": "^0.20.2",
-		"eslint": "^8.57.0",
-		"nerdbank-gitversioning": "^3.6.133",
-		"typescript": "^5.4.2",
-		"@vscode/vsce": "^2.24.0"
+		"@types/node": "20.x",
+		"@typescript-eslint/eslint-plugin": "7.2.0",
+		"@typescript-eslint/parser": "7.2.0",
+		"esbuild": "0.20.2",
+		"eslint": "8.57.0",
+		"nerdbank-gitversioning": "3.6.133",
+		"typescript": "5.4.2",
+		"@vscode/vsce": "2.24.0"
 	}
 }
