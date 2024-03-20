@@ -1,23 +1,36 @@
 {
 	"name": "devskim-vscode-client",
 	"displayName": "Microsoft DevSkim",
+	"version": "0.0.1",
+	"private": false,
 	"description": "Detect security mistakes as you type, and get real time details and fix suggestions",
-	"author": "Microsoft Corporation",
-	"license": "MIT",
-	"version": "0.0.0-placeholder",
-	"publisher": "MS-CST-E",
+	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
+	"bugs": {
+		"url": "https://github.com/CodeEditorLand/Foundation/issues"
+	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Microsoft/devskim.git"
+		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
 	},
-	"engines": {
-		"vscode": "1.63.0"
+	"license": "SEE LICENSE IN LICENSE",
+	"author": {
+		"name": "Playform",
+		"email": "Hello@Playform.Cloud",
+		"url": "https://playform.cloud"
+	},
+	"type": "module",
+	"scripts": {
+		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
 	},
 	"dependencies": {
 		"vscode-languageclient": "9.0.1"
 	},
 	"devDependencies": {
 		"@types/vscode": "1.87.0",
-		"@vscode/test-electron": "2.3.9"
+		"@vscode/test-electron": "2.3.9",
+		"typescript-esbuild": "latest"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
