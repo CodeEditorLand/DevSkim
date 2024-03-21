@@ -1,36 +1,36 @@
 {
-	"name": "devskim-vscode-client",
-	"displayName": "Microsoft DevSkim",
-	"version": "0.0.1",
-	"private": false,
-	"description": "Detect security mistakes as you type, and get real time details and fix suggestions",
-	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
+	"author": {
+		"email": "Hello@Playform.Cloud",
+		"name": "Playform",
+		"url": "https://playform.cloud"
+	},
 	"bugs": {
 		"url": "https://github.com/CodeEditorLand/Foundation/issues"
+	},
+	"dependencies": {
+		"vscode-languageclient": "9.0.1"
+	},
+	"description": "Detect security mistakes as you type, and get real time details and fix suggestions",
+	"devDependencies": {
+		"@types/vscode": "1.87.0",
+		"@vscode/test-electron": "2.3.9",
+		"typescript-esbuild": ""
+	},
+	"displayName": "Microsoft DevSkim",
+	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
+	"license": "SEE LICENSE IN LICENSE",
+	"name": "devskim-vscode-client",
+	"private": false,
+	"publishConfig": {
+		"access": "public"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
 	},
-	"license": "SEE LICENSE IN LICENSE",
-	"author": {
-		"name": "Playform",
-		"email": "Hello@Playform.Cloud",
-		"url": "https://playform.cloud"
-	},
-	"type": "module",
 	"scripts": {
 		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
 	},
-	"dependencies": {
-		"vscode-languageclient": "9.0.1"
-	},
-	"devDependencies": {
-		"@types/vscode": "1.87.0",
-		"@vscode/test-electron": "2.3.9",
-		"typescript-esbuild": "0.4.5"
-	},
-	"publishConfig": {
-		"access": "public"
-	}
+	"type": "module",
+	"version": "0.0.1"
 }
