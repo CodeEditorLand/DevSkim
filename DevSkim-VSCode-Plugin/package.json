@@ -1,52 +1,55 @@
 {
-	"activationEvents": [
-		"onLanguage:bat",
-		"onLanguage:php",
-		"onLanguage:c",
-		"onLanguage:cpp",
-		"onLanguage:csharp",
-		"onLanguage:ruby",
-		"onLanguage:perl",
-		"onLanguage:perl6",
-		"onLanguage:javascriptreact",
-		"onLanguage:javascript",
-		"onLanguage:go",
-		"onLanguage:sql",
-		"onLanguage:rust",
-		"onLanguage:groovy",
-		"onLanguage:typescript",
-		"onLanguage:typescriptreact",
-		"onLanguage:jade",
-		"onLanguage:lua",
-		"onLanguage:swift",
-		"onLanguage:clojure",
-		"onLanguage:vb",
-		"onLanguage:shellscript",
-		"onLanguage:yaml",
-		"onLanguage:fsharp",
-		"onLanguage:objective-c",
-		"onLanguage:xml",
-		"onLanguage:r",
-		"onLanguage:java",
-		"onLanguage:powershell",
-		"onLanguage:coffeescript",
-		"onLanguage:plaintext",
-		"onLanguage:python",
-		"onLanguage:json"
-	],
-	"author": {
-		"email": "Hello@Playform.Cloud",
-		"name": "Playform",
-		"url": "https://playform.cloud"
-	},
+	"name": "vscode-devskim",
+	"displayName": "DevSkim",
+	"version": "0.0.1",
+	"private": false,
+	"description": "DevSkim Security Analyzer Plugin for IDEs. Find security mistakes as code is authored, and fix them with a mouse click.",
+	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
 	"bugs": {
 		"url": "https://github.com/CodeEditorLand/Foundation/issues"
 	},
-	"capabilities": {
-		"virtualWorkspaces": {
-			"description": "DevSkim has not been fully tested in virtual workspaces, but is functional.",
-			"supported": "limited"
-		}
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"author": {
+		"name": "Playform",
+		"email": "Hello@Playform.Cloud",
+		"url": "https://playform.cloud"
+	},
+	"type": "module",
+	"main": "./client/out/extension",
+	"scripts": {
+		"build": "npm run setup && npm run compile",
+		"check-pre-release": "node ./scripts/checkPreReleaseFlag.js",
+		"clean": "npm run clean:net && npm run clean:out && npm run clean:modules && npm run clean:vsix",
+		"clean:modules": "npx --quiet -y rimraf --glob **/node_modules",
+		"clean:net": "npx --quiet -y rimraf devskimBinaries",
+		"clean:out": "npx --quiet -y rimraf --glob **/out && npx --quiet -y rimraf --glob **/tsconfig.tsbuildinfo",
+		"clean:vsix": "npx --quiet -y rimraf --glob *.vsix",
+		"compile": "tsc -b",
+		"do-pack": "(npm run check-pre-release && npm run vsce-pack-pre) || npm run vsce-pack",
+		"esbuild": "npm run esbuild-base -- --sourcemap",
+		"esbuild-base": "esbuild ./client/extension.ts --bundle --outfile=client/out/extension.js --external:vscode --format=cjs --platform=node",
+		"esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+		"postinstall": "cd client && npm install && cd ..",
+		"net-setup": "dotnet publish -c Debug -f net8.0 ../DevSkim-DotNet/Microsoft.DevSkim.LanguageServer -o devskimBinaries",
+		"net-setup:release": "dotnet publish -c Release -f net8.0 ../DevSkim-DotNet/Microsoft.DevSkim.LanguageServer -o devskimBinaries",
+		"pack-ext": "npm run pre-pack-clean && npm run setup:release && npm run set-version-and-pack",
+		"pack-ext:debug": "npm run pre-pack-clean && npm run setup && npm run set-version-and-pack",
+		"pre-pack-clean": "npm run clean:out && npm run clean:modules",
+		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
+		"reset": "npm run clean && npm run setup",
+		"reset-version": "node ./scripts/resetPackageVersion.js",
+		"set-version": "node ./scripts/setPackageVersion.js",
+		"set-version-and-pack": "npm run set-version && npm run do-pack && npm run reset-version",
+		"setup": "npm install && npm run net-setup",
+		"setup:release": "npm install && npm run net-setup:release",
+		"vsce-pack": "vsce package || echo 'Release build failed'",
+		"vsce-pack-pre": "vsce package --pre-release || echo 'Pre-Release build failed'",
+		"vscode:prepublish": "npm run esbuild-base -- --minify",
+		"watch": "tsc -b -w"
 	},
 	"contributes": {
 		"commands": [],
@@ -259,67 +262,64 @@
 			}
 		]
 	},
-	"description": "DevSkim Security Analyzer Plugin for IDEs. Find security mistakes as code is authored, and fix them with a mouse click.",
+	"activationEvents": [
+		"onLanguage:bat",
+		"onLanguage:php",
+		"onLanguage:c",
+		"onLanguage:cpp",
+		"onLanguage:csharp",
+		"onLanguage:ruby",
+		"onLanguage:perl",
+		"onLanguage:perl6",
+		"onLanguage:javascriptreact",
+		"onLanguage:javascript",
+		"onLanguage:go",
+		"onLanguage:sql",
+		"onLanguage:rust",
+		"onLanguage:groovy",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact",
+		"onLanguage:jade",
+		"onLanguage:lua",
+		"onLanguage:swift",
+		"onLanguage:clojure",
+		"onLanguage:vb",
+		"onLanguage:shellscript",
+		"onLanguage:yaml",
+		"onLanguage:fsharp",
+		"onLanguage:objective-c",
+		"onLanguage:xml",
+		"onLanguage:r",
+		"onLanguage:java",
+		"onLanguage:powershell",
+		"onLanguage:coffeescript",
+		"onLanguage:plaintext",
+		"onLanguage:python",
+		"onLanguage:json"
+	],
 	"devDependencies": {
 		"@types/node": "20.x",
 		"@vscode/vsce": "2.24.0",
 		"esbuild": "0.20.2",
 		"nerdbank-gitversioning": "3.6.133",
 		"typescript": "5.4.2",
-		"typescript-esbuild": ""
+		"typescript-esbuild": "0.4.5"
 	},
-	"displayName": "DevSkim",
 	"extensionDependencies": [
 		"ms-dotnettools.vscode-dotnet-runtime"
 	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"icon": "devskim.ico",
 	"galleryBanner": {
 		"color": "#999999",
 		"theme": "dark"
 	},
-	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
-	"icon": "devskim.ico",
-	"license": "SEE LICENSE IN LICENSE",
-	"main": "./client/out/extension",
-	"name": "vscode-devskim",
-	"private": false,
-	"publishConfig": {
-		"access": "public"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
-	},
-	"scripts": {
-		"build": "npm run setup && npm run compile",
-		"check-pre-release": "node ./scripts/checkPreReleaseFlag.js",
-		"clean": "npm run clean:net && npm run clean:out && npm run clean:modules && npm run clean:vsix",
-		"clean:modules": "npx --quiet -y rimraf --glob **/node_modules",
-		"clean:net": "npx --quiet -y rimraf devskimBinaries",
-		"clean:out": "npx --quiet -y rimraf --glob **/out && npx --quiet -y rimraf --glob **/tsconfig.tsbuildinfo",
-		"clean:vsix": "npx --quiet -y rimraf --glob *.vsix",
-		"compile": "tsc -b",
-		"do-pack": "(npm run check-pre-release && npm run vsce-pack-pre) || npm run vsce-pack",
-		"esbuild": "npm run esbuild-base -- --sourcemap",
-		"esbuild-base": "esbuild ./client/extension.ts --bundle --outfile=client/out/extension.js --external:vscode --format=cjs --platform=node",
-		"esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
-		"net-setup": "dotnet publish -c Debug -f net8.0 ../DevSkim-DotNet/Microsoft.DevSkim.LanguageServer -o devskimBinaries",
-		"net-setup:release": "dotnet publish -c Release -f net8.0 ../DevSkim-DotNet/Microsoft.DevSkim.LanguageServer -o devskimBinaries",
-		"pack-ext": "npm run pre-pack-clean && npm run setup:release && npm run set-version-and-pack",
-		"pack-ext:debug": "npm run pre-pack-clean && npm run setup && npm run set-version-and-pack",
-		"postinstall": "cd client && npm install && cd ..",
-		"pre-pack-clean": "npm run clean:out && npm run clean:modules",
-		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
-		"reset": "npm run clean && npm run setup",
-		"reset-version": "node ./scripts/resetPackageVersion.js",
-		"set-version": "node ./scripts/setPackageVersion.js",
-		"set-version-and-pack": "npm run set-version && npm run do-pack && npm run reset-version",
-		"setup": "npm install && npm run net-setup",
-		"setup:release": "npm install && npm run net-setup:release",
-		"vsce-pack": "vsce package || echo 'Release build failed'",
-		"vsce-pack-pre": "vsce package --pre-release || echo 'Pre-Release build failed'",
-		"vscode:prepublish": "npm run esbuild-base -- --minify",
-		"watch": "tsc -b -w"
-	},
-	"type": "module",
-	"version": "0.0.1"
+	"capabilities": {
+		"virtualWorkspaces": {
+			"description": "DevSkim has not been fully tested in virtual workspaces, but is functional.",
+			"supported": "limited"
+		}
+	}
 }
