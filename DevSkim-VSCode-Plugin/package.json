@@ -277,9 +277,9 @@
 		"onLanguage:json"
 	],
 	"devDependencies": {
-		"@types/node": "14.x",
-		"esbuild": "0.14.14",
-		"nerdbank-gitversioning": "3.4.255"
+		"@types/node": "20.x",
+		"esbuild": "0.21.3",
+		"nerdbank-gitversioning": "3.6.133"
 	},
 	"extensionDependencies": [
 		"ms-dotnettools.vscode-dotnet-runtime"
