@@ -4,12 +4,10 @@
  * ------------------------------------------------------------------------------------------ */
 
 // This file has static names for the notifications passed between client and server.
-export function getCodeFixMapping() : string
-{
+export function getCodeFixMapping(): string {
 	return "devskim/codefixmapping";
 }
 
-export function getFileVersion() : string
-{
+export function getFileVersion(): string {
 	return "devskim/fileversion";
 }

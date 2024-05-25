@@ -122,10 +122,7 @@
 					"MS-CST-E.vscode-devskim.suppressions.suppressionCommentStyle": {
 						"default": "Line",
 						"description": "When DevSkim inserts a suppression comment it defaults to using single line comments for every language that has them.  Setting this to block will instead use block comments for the languages that support them.  Block comments are suggested if regularly adding explanations for why a finding was suppressed",
-						"enum": [
-							"Line",
-							"Block"
-						],
+						"enum": ["Line", "Block"],
 						"order": 1,
 						"type": "string"
 					},
@@ -227,11 +224,7 @@
 					"MS-CST-E.vscode-devskim.trace.server": {
 						"default": "off",
 						"description": "Enables debug trace communications between VS Code and the language server.",
-						"enum": [
-							"off",
-							"messages",
-							"verbose"
-						],
+						"enum": ["off", "messages", "verbose"],
 						"order": 0,
 						"scope": "window",
 						"type": "string"
@@ -278,12 +271,10 @@
 	],
 	"devDependencies": {
 		"@types/node": "20.x",
-		"esbuild": "0.21.3",
+		"esbuild": "0.21.4",
 		"nerdbank-gitversioning": "3.6.133"
 	},
-	"extensionDependencies": [
-		"ms-dotnettools.vscode-dotnet-runtime"
-	],
+	"extensionDependencies": ["ms-dotnettools.vscode-dotnet-runtime"],
 	"icon": "devskim.ico",
 	"galleryBanner": {
 		"color": "#999999",
