@@ -1,5 +1,5 @@
-import * as nbgv from 'nerdbank-gitversioning';
-import * as cp from 'child_process';
+import * as cp from "child_process";
+import * as nbgv from "nerdbank-gitversioning";
 
 const versionInfo = await nbgv.getVersion();
 // check that versionInfo.simpleVersion is a valid version formatted like x.y.z
