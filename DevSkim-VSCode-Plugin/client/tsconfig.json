@@ -1,10 +1,8 @@
 {
-    "compilerOptions": {
+	"compilerOptions": {
 		"module": "commonjs",
 		"target": "es2019",
-		"lib": [
-			"ES2019"
-		],
+		"lib": ["ES2019"],
 		"outDir": "out",
 		"rootDir": ".",
 		"sourceMap": true,
@@ -12,16 +10,16 @@
 		"strictNullChecks": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
-        "composite": true
-    },
-    "exclude": [ "node_modules" ],
-    "files": [
-        "./common/codeFixMapping.ts",
+		"composite": true
+	},
+	"exclude": ["node_modules"],
+	"files": [
+		"./common/codeFixMapping.ts",
 		"./common/devskimSettings.ts",
 		"./common/notificationNames.ts",
 		"./common/selectors.ts",
 		"./common/fileVersion.ts",
-        "devskimFixer.ts",
-        "extension.ts"
-    ]
+		"devskimFixer.ts",
+		"extension.ts"
+	]
 }
