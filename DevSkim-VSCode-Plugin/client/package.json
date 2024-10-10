@@ -1,7 +1,7 @@
 {
-	"name": "devskim-vscode-client",
-	"displayName": "Microsoft DevSkim",
-	"description": "Detect security mistakes as you type, and get real time details and fix suggestions",
 	"dependencies": {},
-	"devDependencies": {}
+	"description": "Detect security mistakes as you type, and get real time details and fix suggestions",
+	"devDependencies": {},
+	"displayName": "Microsoft DevSkim",
+	"name": "devskim-vscode-client"
 }
