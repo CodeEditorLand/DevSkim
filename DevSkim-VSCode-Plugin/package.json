@@ -255,7 +255,7 @@
 	"devDependencies": {
 		"@types/node": "22.x",
 		"esbuild": "0.24.0",
-		"nerdbank-gitversioning": "3.6.143"
+		"nerdbank-gitversioning": "3.6.146"
 	},
 	"displayName": "DevSkim",
 	"extensionDependencies": [
