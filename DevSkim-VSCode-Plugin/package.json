@@ -317,9 +317,9 @@
 		"vsce-pack": "vsce package || echo 'Release build failed'"
 	},
 	"devDependencies": {
-		"@types/node": "^22.x",
-		"@typescript-eslint/eslint-plugin": "^8.33.1",
-		"@typescript-eslint/parser": "^8.33.1",
+		"@types/node": "^24.x",
+		"@typescript-eslint/eslint-plugin": "^8.34.0",
+		"@typescript-eslint/parser": "^8.34.0",
 		"@vscode/vsce": "^3.5.0",
 		"esbuild": "^0.25.5",
 		"eslint": "^9.28.0",
